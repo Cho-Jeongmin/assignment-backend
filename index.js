@@ -11,9 +11,6 @@ const db = mysql.createConnection({
   database: "test",
 });
 
-// If ther is a authentication problem,
-// ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'minjeong1593!';
-
 app.use(express.json());
 app.use(cors());
 
@@ -55,7 +52,7 @@ app.post("/posts/:id/comments", (req, res) => {
   });
 });
 
-// 좋아요
+// 좋아요 및 취소
 app.put("/posts/:id/likes", (req, res) => {
   const postId = req.params.id;
   const offset = req.body.isAdding ? "1" : "-1";
